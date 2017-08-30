@@ -1,0 +1,10 @@
+services:
+  - example-001
+  - example-002
+  - example-003
+  - example-004
+endpoint: real-service.default.svc.cluster.local
+port: 1234
+protocol: TCP
+targetPort: 1234
+sessionAffinity: None

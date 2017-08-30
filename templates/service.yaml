@@ -1,0 +1,16 @@
+{{- range $service := .Values.services }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ $service }}"
+spec:
+  externalName: "{{ $.Values.endpoint }}"
+  ports:
+  - name: endpoint
+    port: {{ $.Values.port }}
+    protocol: {{ $.Values.protocol }}
+    targetPort: {{ $.Values.targetPort }}
+  sessionAffinity: {{ $.Values.sessionAffinity }}
+  type: ExternalName
+{{- end }}
